@@ -28,11 +28,12 @@ requirements:
     - openblas
   run:
     - python
+    - pip
     - scipy
     - pyyaml
     - matplotlib-base
     - h5py
-    - phonopy 
+    - phonopy
     - libblas * *openblas
     - openblas
     - libgfortran-ng  # [linux]
@@ -42,6 +43,8 @@ requirements:
 test:
   imports:
     - phono3py
+  commands:
+    - pip check
 
 about:
   home: https://atztogo.github.io/phono3py
