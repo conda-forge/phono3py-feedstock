@@ -1,5 +1,5 @@
 {% set name = "phono3py" %}
-{% set version = "1.18.2.post1" %}
+{% set version = "1.19.0.post40" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 1d32c18818aa2aa0da9c1f1e99477e59831bab1a645718733a56612cce322dc1
+  sha256: 874ee99b37054978c6e3166042a0de75c8b2065e244cdb820d64693954e76e49
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [win]
 
 requirements:
@@ -51,7 +51,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: 'A simulation package of phonon-phonon interaction related properties'
+  summary: A simulation package of phonon-phonon interaction related properties
 
   description: |
     This software calculates phonon-phonon interaction and related 
