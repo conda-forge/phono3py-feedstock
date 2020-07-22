@@ -5,7 +5,7 @@ Home: https://atztogo.github.io/phono3py
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: A simulation package of phonon-phonon interaction related properties
 
@@ -185,4 +185,5 @@ Feedstock Maintainers
 =====================
 
 * [@jan-janssen](https://github.com/jan-janssen/)
+* [@jochym](https://github.com/jochym/)
 
