@@ -1,5 +1,5 @@
 {% set name = "phono3py" %}
-{% set version = "1.19.1" %}
+{% set version = "1.20.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 6f1183f112a5885b911863e3fe50ccb92714fbf4baab7ca80dca8bcf3d5b98b5
+  sha256: 5cb95ed952c54cb470e6bea1654ab3ceacb9ef291ec122388661ff64a591b0cd
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [win]
 
@@ -33,7 +33,7 @@ requirements:
     - pyyaml
     - matplotlib-base
     - h5py
-    - phonopy <=2.6.0
+    - phonopy >=2.7,<2.8
     - libblas * *openblas
     - openblas
     - libgfortran-ng  # [linux]
