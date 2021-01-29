@@ -23,7 +23,6 @@ requirements:
     - numpy
     - libblas
     - libcblas
-    - liblapack
     - liblapacke
     - libgfortran
     - openblas
