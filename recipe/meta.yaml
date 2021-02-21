@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/phonopy/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 382860cd40cdbb7b9bb292168dfe529262113ed4adfd3ee26502115010abb82d
+  sha256: eff1d4fc4d3d5b9bd40b3498a411a327e47861f275d5aefe84991d09fdad9da7
 
 build:
   number: 0
