@@ -1,13 +1,13 @@
 {% set name = "phono3py" %}
-{% set version = "1.21.0" %}
+{% set version = "1.22.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8041e5cf2f6c98ee3fd9727061f8df04e754eb097ba0478c8fb934a7159cfd2c
+  url: https://github.com/phonopy/{{ name }}/archive/v{{ version }}.tar.gz
+  sha256: eff1d4fc4d3d5b9bd40b3498a411a327e47861f275d5aefe84991d09fdad9da7
 
 build:
   number: 1
