@@ -5,9 +5,13 @@ Home: https://atztogo.github.io/phono3py
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/phono3py-feedstock/blob/master/LICENSE.txt)
 
 Summary: A simulation package of phonon-phonon interaction related properties
+
+Development: https://github.com/atztogo/phono3py
+
+Documentation: https://atztogo.github.io/phono3py
 
 This software calculates phonon-phonon interaction and related
 properties using the supercell approach.
