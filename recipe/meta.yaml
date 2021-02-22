@@ -6,11 +6,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/phonopy/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 3284bf7af5c4d870760a18f43d1c6f8e796547d51e8d921ebf3833ebc908a9b3
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 2e8f0d9669d9a4854506e15980cebf9361771524e8e3cd4ea59cebb2f2e8667a
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [win]
 
