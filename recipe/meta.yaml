@@ -8,12 +8,12 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: b91f154469b6905933a19f3d315b638b2e6882651d7ffc02c171e4e1f719d89a
-  patches:
-    - site_cfg.patch
+#  patches:
+#    - site_cfg.patch
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  script: touch site.cfg && {{ PYTHON }} -m pip install . -vv
   skip: true  # [win]
 
 requirements:
