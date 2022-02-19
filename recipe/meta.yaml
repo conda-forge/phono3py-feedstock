@@ -11,14 +11,17 @@ source:
 
 build:
   number: 0
-  script: echo "[phono3py]\nextra_compile_args = -fopenmp\nextra_link_args = -lgomp" > site.cfg && {{ PYTHON }} -m pip install . -vv
+  script: touch site.cfg && {{ PYTHON }} -m pip install . -vv
   skip: true  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ compiler('fortran') }}
+    - llvm-openmp  # [osx]
+    - libgomp      # [linux]
   host:
-    - python 
+    - python
     - pip
     - numpy
     - libblas
@@ -29,23 +32,22 @@ requirements:
     - mkl-include
   run:
     - python
-    - pip
     - scipy
     - pyyaml
     - matplotlib-base
     - h5py
     - phonopy >=2.9.3
-    - libblas * *openblas
-    - openblas
-    - libgfortran-ng  # [linux]
-    - llvm-openmp  # [osx]
-    - _openmp_mutex  # [linux]
+    - mkl
+    - mkl-include
 
 test:
   imports:
     - phono3py
   commands:
     - pip check
+    - phono3py --help
+  requires:
+    - pip
 
 about:
   home: https://atztogo.github.io/phono3py
