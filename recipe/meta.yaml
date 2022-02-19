@@ -11,14 +11,12 @@ source:
 
 build:
   number: 0
-  script: echo "[phono3py]\nextra_compile_args = -fopenmp \$CFLAGS\nextra_link_args = -lgomp \$LDFLAGS" > site.cfg && {{ PYTHON }} -m pip install . -vv
+  script: echo "[phono3py]\nextra_compile_args = -fopenmp\nextra_link_args = -lgomp" > site.cfg && {{ PYTHON }} -m pip install . -vv
   skip: true  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
-    - llvm-openmp  # [osx]
-    - libgomp      # [linux]
   host:
     - python 
     - pip
@@ -27,8 +25,8 @@ requirements:
     - libcblas
     - liblapacke
     - libgfortran
-    - openblas
     - mkl
+    - mkl-include
   run:
     - python
     - pip
