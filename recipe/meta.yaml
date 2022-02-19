@@ -18,7 +18,7 @@ requirements:
   build:
     - {{ compiler('c') }}
   host:
-    - python
+    - python >=3.9
     - pip
     - numpy
     - libblas
@@ -27,7 +27,7 @@ requirements:
     - libgfortran
     - openblas
   run:
-    - python
+    - python >=3.9
     - pip
     - scipy
     - pyyaml
