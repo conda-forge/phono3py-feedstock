@@ -20,7 +20,7 @@ requirements:
   build:
     - {{ compiler('c') }}
   host:
-    - python
+    - python >=3.9 
     - pip
     - numpy
     - libblas
@@ -28,7 +28,6 @@ requirements:
     - liblapacke
     - libgfortran
     - openblas
-    - mkl
   run:
     - python
     - pip
