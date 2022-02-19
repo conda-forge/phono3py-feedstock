@@ -28,6 +28,7 @@ requirements:
     - liblapacke
     - libgfortran
     - openblas
+    - mkl
   run:
     - python
     - pip
@@ -65,3 +66,4 @@ extra:
   recipe-maintainers:
     - jan-janssen
     - jochym
+    - atztogo
