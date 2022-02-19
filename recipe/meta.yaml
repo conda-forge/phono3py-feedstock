@@ -26,6 +26,7 @@ requirements:
     - liblapacke
     - libgfortran
     - openblas
+    - mkl
   run:
     - python
     - pip
