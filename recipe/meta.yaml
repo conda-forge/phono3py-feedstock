@@ -12,13 +12,13 @@ source:
 build:
   number: 0
   script: touch site.cfg && {{ PYTHON }} -m pip install . -vv
-  skip: true  # [win]
+  skip: true  # [win or py<3.9]
 
 requirements:
   build:
     - {{ compiler('c') }}
   host:
-    - python >=3.9
+    - python
     - pip
     - numpy
     - libblas
@@ -27,7 +27,7 @@ requirements:
     - libgfortran
     - openblas
   run:
-    - python >=3.9
+    - python
     - pip
     - scipy
     - pyyaml
