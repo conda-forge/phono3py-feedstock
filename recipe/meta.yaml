@@ -23,7 +23,7 @@ requirements:
   host:
     - python
     - pip
-    - numpy >= 1.15.0
+    - numpy >=1.15.0
     - libblas
     - libcblas
     - libgfortran
@@ -33,7 +33,7 @@ requirements:
     - python
     - scipy
     - pyyaml
-    - matplotlib-base >= 2.2.2
+    - matplotlib-base >=2.2.2
     - h5py
     - phonopy >=2.14.0
     - mkl
