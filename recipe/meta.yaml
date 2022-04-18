@@ -1,5 +1,5 @@
 {% set name = "phono3py" %}
-{% set version = "2.1.0" %}
+{% set version = "2.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,44 +7,46 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 65bf51b6b8cefb8e4a17445598242da4dfa70ccb6a7ac4da2c2d4fe70ffb927a
+  sha256: 1932e1d96ec3a26a19709e9e52a11397d852989b717d35d5c09313cb3a6d1a6d
 
 build:
-  number: 1
-  script: {{ PYTHON }} -m pip install . -vv
+  number: 0
+  script: echo "[phono3py]" > site.cfg && echo "extra_compile_args = -fopenmp" >> site.cfg && {{ PYTHON }} -m pip install . -vv
   skip: true  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ compiler('fortran') }}
+    - llvm-openmp  # [osx]
+    - libgomp      # [linux]
   host:
     - python
     - pip
-    - numpy
+    - numpy >=1.15.0
     - libblas
     - libcblas
-    - liblapacke
     - libgfortran
-    - openblas
+    - mkl
+    - mkl-include
   run:
     - python
-    - pip
     - scipy
     - pyyaml
-    - matplotlib-base
+    - matplotlib-base >=2.2.2
     - h5py
-    - phonopy >=2.9.3
-    - libblas * *openblas
-    - openblas
-    - libgfortran-ng  # [linux]
-    - llvm-openmp  # [osx]
-    - _openmp_mutex  # [linux]
+    - phonopy >=2.14.0
+    - mkl
+    - mkl-include
 
 test:
   imports:
     - phono3py
   commands:
     - pip check
+    - phono3py --help
+  requires:
+    - pip
 
 about:
   home: https://atztogo.github.io/phono3py
@@ -56,10 +58,11 @@ about:
   description: |
     This software calculates phonon-phonon interaction and related 
     properties using the supercell approach. 
-  doc_url: https://atztogo.github.io/phono3py
-  dev_url: https://github.com/atztogo/phono3py
+  doc_url: https://phonopy.github.io/phono3py
+  dev_url: https://github.com/phonopy/phono3py
 
 extra:
   recipe-maintainers:
     - jan-janssen
     - jochym
+    - atztogo
