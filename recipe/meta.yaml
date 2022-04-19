@@ -22,10 +22,10 @@ requirements:
     - libgomp      # [linux]
   host:
     - pip
-    - python
     - numpy >=1.15.0
     - openblas
   run:
+    - python
     - scipy
     - pyyaml
     - matplotlib-base >=2.2.2
