@@ -18,24 +18,20 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    - {{ compiler('fortran') }}
     - llvm-openmp  # [osx]
     - libgomp      # [linux]
   host:
-    - python
     - pip
+    - python
     - numpy >=1.15.0
-    - libblas
-    - libcblas
-    - libgfortran
     - openblas
   run:
-    - python
     - scipy
     - pyyaml
     - matplotlib-base >=2.2.2
     - h5py
     - phonopy >=2.14.0
+    - libblas * *openblas
     - openblas
 
 test:
