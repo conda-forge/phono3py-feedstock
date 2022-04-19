@@ -21,6 +21,7 @@ requirements:
     - llvm-openmp  # [osx]
     - libgomp      # [linux]
   host:
+    - python
     - pip
     - numpy >=1.15.0
     - openblas
