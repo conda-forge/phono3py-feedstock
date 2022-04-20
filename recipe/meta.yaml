@@ -28,6 +28,7 @@ requirements:
     - libblas * *openblas
     - openblas
   run:
+    - python
     - scipy
     - pyyaml
     - matplotlib-base >=2.2.2
