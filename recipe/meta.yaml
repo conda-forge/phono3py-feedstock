@@ -20,16 +20,17 @@ requirements:
     - {{ compiler('c') }}
     - llvm-openmp  # [osx]
     - libgomp      # [linux]
-    - setuptools
-    - wheel
+  host:
     - python
-    - openblas
+    - setuptools
+    - pip
     - numpy >=1.15.0
+    - libblas * *openblas
+    - openblas
   run:
     - python
     - pip
     - numpy >=1.15.0
-    - openblas
     - python
     - scipy
     - pyyaml
