@@ -29,6 +29,7 @@ requirements:
     - openblas
   run:
     - python
+    - {{ pin_compatible('numpy') }}
     - scipy
     - pyyaml
     - matplotlib-base >=2.2.2
