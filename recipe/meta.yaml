@@ -28,17 +28,13 @@ requirements:
     - libblas * *openblas
     - openblas
   run:
-    - python
-    - pip
-    - numpy >=1.15.0
-    - python
     - scipy
     - pyyaml
     - matplotlib-base >=2.2.2
     - h5py
     - phonopy >=2.14.0,<=2.15.0
     - libblas * *openblas
-    - openblas
+    - libopenblas
 
 test:
   imports:
