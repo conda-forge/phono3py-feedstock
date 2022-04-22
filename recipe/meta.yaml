@@ -36,7 +36,7 @@ requirements:
     - h5py
     - phonopy >=2.14.0,<=2.15.0
     - libblas * *openblas
-    - libopenblas
+    - openblas
 
 test:
   imports:
