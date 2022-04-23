@@ -11,42 +11,44 @@ source:
 
 build:
   number: 0
-  script: echo "[phono3py]" > site.cfg && echo "extra_compile_args = -fopenmp" >> site.cfg && {{ PYTHON }} -m pip install . -vv
+  script: echo "[phono3py]" > site.cfg && echo "extra_compile_args = -fopenmp" >> site.cfg && echo "extra_link_args = -lgomp -lopenblas" >> site.cfg && {{ PYTHON }} -m pip install . -vv  # [linux]
+  script: echo "[phono3py]" > site.cfg && echo "extra_compile_args = -fopenmp" >> site.cfg && echo "extra_link_args = -lopenblas" >> site.cfg && {{ PYTHON }} -m pip install . -vv  # [osx]
   skip: true  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
-    - {{ compiler('fortran') }}
     - llvm-openmp  # [osx]
     - libgomp      # [linux]
   host:
     - python
+    - setuptools
     - pip
     - numpy >=1.15.0
-    - libblas
-    - libcblas
-    - libgfortran
-    - mkl
-    - mkl-include
+    - libblas * *openblas
+    - openblas
   run:
     - python
+    - {{ pin_compatible('numpy') }}
     - scipy
     - pyyaml
     - matplotlib-base >=2.2.2
     - h5py
-    - phonopy >=2.14.0
-    - mkl
-    - mkl-include
+    - phonopy >=2.14.0,<=2.15.0
+    - libblas * *openblas
+    - openblas
 
 test:
   imports:
     - phono3py
+  source_files:
+    - test    
   commands:
     - pip check
-    - phono3py --help
+    - pytest  # [linux]
+    - pytest  # [osx and py>=38]
   requires:
-    - pip
+    - pytest
 
 about:
   home: https://atztogo.github.io/phono3py
