@@ -27,7 +27,7 @@ requirements:
     - python
     - setuptools
     - pip
-    - numpy >=1.15.0
+    - numpy
     - libblas * *openblas
     - openblas
   run:
