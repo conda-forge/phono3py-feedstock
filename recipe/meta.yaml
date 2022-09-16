@@ -10,7 +10,7 @@ source:
   sha256: 45777cbfb2b4357a28348587ebb8c3599904594baa66f67ac9d2b35ee6151d4a
 
 build:
-  number: 1
+  number: 2
   script: echo "[phono3py]" > site.cfg && echo "extra_compile_args = -fopenmp" >> site.cfg && echo "extra_link_args = -lgomp -lopenblas" >> site.cfg && {{ PYTHON }} -m pip install . -vv  # [linux]
   script: echo "[phono3py]" > site.cfg && echo "extra_compile_args = -fopenmp" >> site.cfg && echo "extra_link_args = -lopenblas" >> site.cfg && {{ PYTHON }} -m pip install . -vv  # [osx]
   skip: true  # [win]
@@ -23,7 +23,7 @@ requirements:
     - {{ compiler('c') }}
     - llvm-openmp  # [osx]
     - libgomp      # [linux]
-    - numpy
+    #- numpy
     #- openblas
   host:
     - python
