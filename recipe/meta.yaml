@@ -23,8 +23,6 @@ requirements:
     - {{ compiler('c') }}
     - llvm-openmp  # [osx]
     - libgomp      # [linux]
-    #- numpy
-    #- openblas
   host:
     - python
     - setuptools
