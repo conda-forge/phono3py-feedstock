@@ -10,9 +10,9 @@ source:
   sha256: 45777cbfb2b4357a28348587ebb8c3599904594baa66f67ac9d2b35ee6151d4a
 
 build:
-  number: 2
-  script: echo "[phono3py]" > site.cfg && echo "extra_compile_args = -fopenmp" >> site.cfg && echo "extra_link_args = -lgomp -lopenblas" >> site.cfg && {{ PYTHON }} -m pip install . -vv  # [linux]
-  script: echo "[phono3py]" > site.cfg && echo "extra_compile_args = -fopenmp" >> site.cfg && echo "extra_link_args = -lopenblas" >> site.cfg && {{ PYTHON }} -m pip install . -vv  # [osx]
+  number: 0
+  script: export PHONO3PY_USE_CMAKE=false && echo "extra_compile_args = -fopenmp" > site.cfg && echo "extra_link_args = -lgomp -lopenblas" >> site.cfg && {{ PYTHON }} -m pip install . -vvv  # [linux]
+  script: export PHONO3PY_USE_CMAKE=false && echo "extra_compile_args = -fopenmp" > site.cfg && echo "extra_link_args = -lopenblas" >> site.cfg && {{ PYTHON }} -m pip install . -vvv  # [osx or arm64]
   skip: true  # [win]
 
 requirements:
@@ -21,7 +21,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
-    - llvm-openmp  # [osx]
+    - llvm-openmp  # [osx or arm64]
     - libgomp      # [linux]
   host:
     - python
@@ -37,7 +37,7 @@ requirements:
     - pyyaml
     - matplotlib-base >=2.2.2
     - h5py
-    - phonopy >=2.14.0,<=2.15.0
+    - phonopy >=2.16.0,<2.17.0
     - libblas * *openblas
     - openblas
 
@@ -50,6 +50,7 @@ test:
     - pip check
     - pytest  # [linux]
     - pytest  # [osx and py>=38]
+    - pytest  # [arm64 and py>=38]
   requires:
     - pytest
 
