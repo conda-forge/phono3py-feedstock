@@ -10,7 +10,7 @@ source:
   sha256: 4ea42f0907c18ebc680357b64ae7eb453bec47b95507cd5112a45cd6668f1611
 
 build:
-  number: 0
+  number: 1
   script: export PHONO3PY_USE_CMAKE=false && echo "extra_compile_args = -fopenmp" > site.cfg && echo "extra_link_args = -lgomp -lopenblas" >> site.cfg && {{ PYTHON }} -m pip install . -vvv  # [linux]
   script: export PHONO3PY_USE_CMAKE=false && echo "extra_compile_args = -fopenmp" > site.cfg && echo "extra_link_args = -lopenblas" >> site.cfg && {{ PYTHON }} -m pip install . -vvv  # [osx or arm64]
   skip: true  # [win]
@@ -37,7 +37,7 @@ requirements:
     - pyyaml
     - matplotlib-base >=2.2.2
     - h5py
-    - phonopy >=2.17.0,<2.18.0
+    - phonopy >=2.18.0,<2.19.0
     - libblas * *openblas
     - openblas
 
