@@ -1,5 +1,5 @@
 {% set name = "phono3py" %}
-{% set version = "2.7.0" %}
+{% set version = "2.8.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8d2c6d52d4b9a25783d69fb3a502394ed02eba7d573c5f1a3e43fd74ac1e5ed3
+  sha256: b2fe2452a939c1cc8f37d4b7b821f38b449ec6b673b1c3bab24c5b6de7f4fa02
 
 build:
   number: 0
