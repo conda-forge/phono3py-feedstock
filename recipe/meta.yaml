@@ -1,5 +1,5 @@
 {% set name = "phono3py" %}
-{% set version = "2.10.0" %}
+{% set version = "3.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: f03bcfc36761a8f97f393adfff3c86d10c2f90dcc4f1cf9bed066b50781fcac6
+  sha256: 07d7493791b857aeccfdd160de5dc20f3983ca41cb419f9fc7ae4eb455bc7081
 
 build:
   number: 0
@@ -21,6 +21,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - llvm-openmp  # [osx or arm64]
     - libgomp      # [linux]
   host:
