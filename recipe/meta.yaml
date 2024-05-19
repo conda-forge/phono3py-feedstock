@@ -38,7 +38,7 @@ requirements:
     - pyyaml
     - matplotlib-base
     - h5py
-    - spglib <2.4.0
+    - spglib
     - phonopy >=2.23.0,<2.24.0
     - libblas * *openblas
     - openblas
