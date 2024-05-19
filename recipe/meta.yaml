@@ -10,7 +10,7 @@ source:
   sha256: 371570cb34dc4cbb799ea656670e02add33d5532d9a23571cec34ecfa382e7b6
 
 build:
-  number: 0
+  number: 1
   script: export PHONO3PY_USE_CMAKE=false && echo "extra_compile_args = -fopenmp" > site.cfg && echo "extra_link_args = -lgomp -lopenblas" >> site.cfg && {{ PYTHON }} -m pip install . -vvv  # [linux]
   script: export PHONO3PY_USE_CMAKE=false && echo "extra_compile_args = -fopenmp" > site.cfg && echo "extra_link_args = -lopenblas" >> site.cfg && {{ PYTHON }} -m pip install . -vvv  # [osx or arm64]
   skip: true  # [win]
