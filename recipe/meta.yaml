@@ -1,5 +1,5 @@
 {% set name = "phono3py" %}
-{% set version = "3.0.3" %}
+{% set version = "3.1.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 371570cb34dc4cbb799ea656670e02add33d5532d9a23571cec34ecfa382e7b6
+  sha256: d7408176a322cc3a2cf0522a97dd8c4ad420f7356706db2de8687c44cbe0e6ec
 
 build:
-  number: 2
+  number: 0
   script: export PHONO3PY_USE_CMAKE=false && echo "extra_compile_args = -fopenmp" > site.cfg && echo "extra_link_args = -lgomp -lopenblas" >> site.cfg && {{ PYTHON }} -m pip install . -vvv  # [linux]
   script: export PHONO3PY_USE_CMAKE=false && echo "extra_compile_args = -fopenmp" > site.cfg && echo "extra_link_args = -lopenblas" >> site.cfg && {{ PYTHON }} -m pip install . -vvv  # [osx or arm64]
   skip: true  # [win]
