@@ -63,11 +63,10 @@ test:
     - test
   commands:
     - pip check
-    - pytest  # [linux]
-    - pytest  # [osx and py>=38]
-    - pytest  # [arm64 and py>=38]
+    - pytest -v
   requires:
     - pytest
+    - pip
 
 about:
   home: https://phonopy.github.io/phono3py
