@@ -1,5 +1,5 @@
 {% set name = "phono3py" %}
-{% set version = "3.2.0" %}
+{% set version = "3.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ab13599c906d295584ab0e73e2312ceca33c2277326a2e4bb2a23866738f668f
+  sha256: 367b38bff3991e875730c1a5822f5e0c357ed71a7db9fe3e9d1628c2f122316b
 
 build:
   number: 0
-  script: export PHONO3PY_USE_CMAKE=false && echo "extra_compile_args = -fopenmp" > site.cfg && echo "extra_link_args = -lgomp -lopenblas" >> site.cfg && {{ PYTHON }} -m pip install . -vvv  # [linux]
-  script: export PHONO3PY_USE_CMAKE=false && echo "extra_compile_args = -fopenmp" > site.cfg && echo "extra_link_args = -lopenblas" >> site.cfg && {{ PYTHON }} -m pip install . -vvv  # [osx or arm64]
+  script: {{ PYTHON }} -m pip install . -vvv
   skip: true  # [win]
 
 requirements:
@@ -21,16 +20,30 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - {{ stdlib("c") }}
     - llvm-openmp  # [osx or arm64]
     - libgomp      # [linux]
+    - pip
+    - scikit-build-core
+    - nanobind
+    - cmake
+    - make  # [not win]
+    - ninja  # [win]    
+    - setuptools_scm
   host:
     - python
     - setuptools
-    - pip
     - numpy
     - libblas * *openblas
     - openblas
+    - pip
+    - scikit-build-core
+    - nanobind
+    - cmake
+    - make  # [not win]
+    - ninja  # [win]    
+    - setuptools_scm
   run:
     - python
     - {{ pin_compatible('numpy') }}
@@ -39,7 +52,7 @@ requirements:
     - matplotlib-base
     - h5py
     - spglib
-    - phonopy >=2.25.0,<2.26.0
+    - phonopy >=2.26.0,<2.27.0
     - libblas * *openblas
     - openblas
 
@@ -50,11 +63,10 @@ test:
     - test
   commands:
     - pip check
-    - pytest  # [linux]
-    - pytest  # [osx and py>=38]
-    - pytest  # [arm64 and py>=38]
+    - pytest -v
   requires:
     - pytest
+    - pip
 
 about:
   home: https://phonopy.github.io/phono3py
