@@ -10,7 +10,7 @@ source:
   sha256: 8b177387a436debe934e82d2576b6308ee8eefc081d5bb9636f3178a56aef67e
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vvv
   skip: true  # [win]
 
@@ -46,7 +46,6 @@ requirements:
     - setuptools_scm
   run:
     - python
-    - {{ pin_compatible('numpy') }}
     - scipy
     - pyyaml
     - matplotlib-base
