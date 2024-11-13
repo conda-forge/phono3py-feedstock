@@ -1,5 +1,5 @@
 {% set name = "phono3py" %}
-{% set version = "3.6.0" %}
+{% set version = "3.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 6d2dcf8438f9049fe15973715fa2d35085f646bc26657b2256429a20a97bf922
+  sha256: 0ba4816425795f59a9de986552e0ec797d47d0775946e4285febe9c0ef1fd387
 
 build:
   number: 1
@@ -51,7 +51,7 @@ requirements:
     - matplotlib-base
     - h5py
     - spglib
-    - phonopy >=2.29.0,<2.30.0
+    - phonopy >=2.30.0,<2.31.0
     - libblas * *openblas
     - openblas
 
