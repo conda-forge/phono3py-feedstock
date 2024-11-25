@@ -1,5 +1,5 @@
 {% set name = "phono3py" %}
-{% set version = "3.7.0" %}
+{% set version = "3.8.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0ba4816425795f59a9de986552e0ec797d47d0775946e4285febe9c0ef1fd387
+  sha256: c6455df6e5470d1932e583e40d8b63f5d0bfeae3c976a0090499d375f4fb608b
 
 build:
-  number: 1
-  script: {{ PYTHON }} -m pip install . -vvv
+  number: 0
+  script: BUILD_WITHOUT_LAPACKE=ON {{ PYTHON }} -m pip install . -vvv
   skip: true  # [win]
 
 requirements:
@@ -35,8 +35,6 @@ requirements:
     - python
     - setuptools
     - numpy
-    - libblas * *openblas
-    - openblas
     - pip
     - scikit-build-core
     - nanobind
@@ -51,9 +49,7 @@ requirements:
     - matplotlib-base
     - h5py
     - spglib
-    - phonopy >=2.30.0,<2.31.0
-    - libblas * *openblas
-    - openblas
+    - phonopy >=2.31.0,<2.32.0
 
 test:
   imports:
