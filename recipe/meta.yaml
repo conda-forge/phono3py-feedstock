@@ -1,5 +1,5 @@
 {% set name = "phono3py" %}
-{% set version = "3.8.0" %}
+{% set version = "3.9.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c6455df6e5470d1932e583e40d8b63f5d0bfeae3c976a0090499d375f4fb608b
+  sha256: f93b6a74a0ba976f403cf22566ac7644a66955cf07be6a037b7f9438fb5de466
 
 build:
   number: 0
@@ -49,7 +49,7 @@ requirements:
     - matplotlib-base
     - h5py
     - spglib
-    - phonopy >=2.31.0,<2.32.0
+    - phonopy >=2.32.0,<2.33.0
 
 test:
   imports:
