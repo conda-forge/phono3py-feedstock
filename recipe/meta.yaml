@@ -23,9 +23,9 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ stdlib("c") }}
-    - llvm-openmp  # [osx or arm64]
-    - libgomp      # [linux]
-    - intel-openmp # [win]
+    - llvm-openmp   # [osx or arm64]
+    - libgomp       # [linux]
+    - intel-openmp  # [win]
     - pip
     - scikit-build-core
     - nanobind
