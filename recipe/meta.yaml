@@ -58,13 +58,13 @@ test:
     - test
   commands:
     - pip check
-    - pytest -sv test/conductivity/test_kappa_LBTE.py::test_kappa_LBTE_345
-    - pytest -sv test/conductivity/test_kappa_LBTE.py::test_kappa_LBTE_full_colmat
-    - pytest -sv test/conductivity/test_kappa_LBTE.py::test_kappa_LBTE_aln_with_sigma
-    - pytest -sv test/conductivity/test_kappa_LBTE_Wigner.py::test_kappa_LBTE
     - pytest -sv test/phonon/test_grid.py::test_BZGrid_SNF_hexagonal
     - pytest -sv test/phonon/test_grid.py::test_BZGrid_SNF_nonprimitive
     - pytest -sv test/phonon3/test_interaction.py::test_get_all_shortest
+    - pytest -sv test/conductivity/test_kappa_LBTE.py::test_kappa_LBTE_full_colmat
+    - pytest -sv test/conductivity/test_kappa_LBTE.py::test_kappa_LBTE_aln_with_sigma
+    - pytest -sv test/conductivity/test_kappa_LBTE_Wigner.py::test_kappa_LBTE
+    - pytest -sv test/conductivity/test_kappa_LBTE.py::test_kappa_LBTE_345
     # - pytest -v
   requires:
     - pytest
