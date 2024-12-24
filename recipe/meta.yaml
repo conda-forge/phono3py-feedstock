@@ -13,6 +13,7 @@ source:
 build:
   number: 1
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  skip: true  # [osx or arm64 or linux]
 
 requirements:
   build:
