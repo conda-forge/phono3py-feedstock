@@ -43,6 +43,7 @@ requirements:
     - make  # [not win]
     - ninja  # [win]    
     - setuptools_scm
+    - openblas  # [win]
   run:
     - python
     - scipy
@@ -50,6 +51,8 @@ requirements:
     - matplotlib-base
     - h5py
     - phonopy >=2.33.3,<2.34.0
+    - libblas * *openblas  # [win]
+    - openblas  # [win]
 
 test:
   imports:
