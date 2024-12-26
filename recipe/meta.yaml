@@ -6,8 +6,9 @@ package:
   version: {{ version }}
 
 source:
-  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8e33aacedc100be8bcd8e69e9cf1b57cb30d9c8ba1a42c759d52ab1d3ac12ea8
+    git_url: https://github.com/phonopy/phono3py.git
+#   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+#   sha256: d927ea6d4b8e5dcc630cdcc271a7663349b3152eaf4047055b8584051703b3ea
 
 build:
   number: 1
