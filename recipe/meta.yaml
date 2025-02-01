@@ -1,5 +1,5 @@
 {% set name = "phono3py" %}
-{% set version = "3.12.1" %}
+{% set version = "3.12.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,11 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ab4e79ffad3e7e66afd098ab28277147895f0ca7a50799a4b6da5616c35ebf95
+  sha256: 296ee28720a98115168e724c63bb2f2e76788ef4ee2d0b63abb7282f77dca86b
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
-  skip: true  # [win]
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -v
 
 requirements:
   build:
