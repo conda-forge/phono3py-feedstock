@@ -10,8 +10,14 @@ source:
   sha256: 1efc0e108a760ab9687b9a15b38a2dde20f68fe207cf0b34bd4721bbcd8f28b7
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -v
+  entry_points:  # Tentavive to fix the entry points
+    - phono3py = phono3py.scripts.phono3py:run
+    - phono3py-load = phono3py.scripts.phono3py_load:run
+    - phono3py-coleigplot = phono3py.scripts.phono3py_coleigplot:run
+    - phono3py-kaccum = phono3py.scripts.phono3py_kaccum:run
+    - phono3py-kdeplot = phono3py.scripts.phono3py_kdeplot:run
 
 requirements:
   build:
