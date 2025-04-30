@@ -1,5 +1,5 @@
 {% set name = "phono3py" %}
-{% set version = "3.15.0" %}
+{% set version = "3.15.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 1efc0e108a760ab9687b9a15b38a2dde20f68fe207cf0b34bd4721bbcd8f28b7
+  sha256: 57941919af3398bfb65c0ce0b6774cdae22acc279ded1d0725e8123d863498ae
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -v
   entry_points:  # Tentavive to fix the entry points
     - phono3py = phono3py.scripts.phono3py:run
@@ -53,7 +53,7 @@ requirements:
     - pyyaml
     - matplotlib-base
     - h5py
-    - phonopy <2.39,>=2.38.0
+    - phonopy <2.39,>=2.38.2
 
 test:
   imports:
