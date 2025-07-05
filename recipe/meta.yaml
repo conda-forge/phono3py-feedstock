@@ -1,5 +1,5 @@
 {% set name = "phono3py" %}
-{% set version = "3.17.0" %}
+{% set version = "3.17.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 414540f73a75d142de50e6515577a11cdc546dc3f9214386796b3bfec0f409ba
+  sha256: 663575bc1803b2b54c01e0f255f71af3cee70f37f1f79f81bdc7acd2bf90ea46
 
 build:
   number: 0
