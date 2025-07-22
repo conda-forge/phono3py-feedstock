@@ -1,5 +1,5 @@
 {% set name = "phono3py" %}
-{% set version = "3.17.1" %}
+{% set version = "3.18.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 663575bc1803b2b54c01e0f255f71af3cee70f37f1f79f81bdc7acd2bf90ea46
+  sha256: 5ae4c1dc987ccccca2563eadf705eb3e12e3de4eb31f1eb566a24e55a2bcf10b
 
 build:
   number: 0
@@ -53,7 +53,7 @@ requirements:
     - pyyaml
     - matplotlib-base
     - h5py
-    - phonopy <2.42,>=2.41
+    - phonopy <2.43,>=2.42
 
 test:
   imports:
