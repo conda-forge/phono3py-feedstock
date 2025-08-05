@@ -1,5 +1,5 @@
 {% set name = "phono3py" %}
-{% set version = "3.19.0" %}
+{% set version = "3.19.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8d246aad04c815fa9a6a175e43b3f26a511dd0aa5dfb35ed263af1326f747dbd
+  sha256: 57cbdbc63834339d332202850efe8e5e447ca584cc7dd1c2e8e83ff754fbbe37
 
 build:
   number: 0
@@ -36,9 +36,6 @@ requirements:
     - make  # [not win]
     - ninja  # [win]    
     - setuptools_scm
-    - libblas * *openblas  # [win]
-    - libcblas * *openblas  # [win]
-    - liblapack * *openblas  # [win]    
   host:
     - python
     - setuptools
@@ -50,18 +47,12 @@ requirements:
     - make  # [not win]
     - ninja  # [win]    
     - setuptools_scm
-    - libblas * *openblas  # [win]
-    - libcblas * *openblas  # [win]
-    - liblapack * *openblas  # [win]    
   run:
     - python
     - scipy
     - pyyaml
     - matplotlib-base
     - h5py
-    - libblas * *openblas  # [win]
-    - libcblas * *openblas  # [win]
-    - liblapack * *openblas  # [win]    
     - phonopy <2.44,>=2.43
 
 test:
