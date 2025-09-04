@@ -10,7 +10,7 @@ source:
   sha256: ad038857ad7f3cd10991088fdf0faff4c9f86b28c5596d8bd06ccef227904bd1
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -v
   entry_points:  # Tentavive to fix the entry points
     - phono3py = phono3py.scripts.phono3py:run
