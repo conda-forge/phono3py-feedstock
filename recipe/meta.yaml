@@ -53,7 +53,7 @@ requirements:
     - pyyaml
     - matplotlib-base
     - h5py
-    - phonopy <2.44,>=2.43
+    - phonopy <2.45,>=2.44
 
 test:
   imports:
