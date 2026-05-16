@@ -1,0 +1,100 @@
+schema_version: 1
+
+context:
+  name: phono3py
+  version: "3.31.1"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://files.pythonhosted.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
+  sha256: e63f568fc725eacf1939ec342cb8b2de4383f4f81cbf34105a84a7dfeac7b949
+
+build:
+  number: 1
+  script: ${{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -v
+  python:
+    entry_points:
+      - phono3py = phono3py.scripts.phono3py:run
+      - phono3py-load = phono3py.scripts.phono3py_load:run
+      - phono3py-coleigplot = phono3py.scripts.phono3py_coleigplot:run
+      - phono3py-kaccum = phono3py.scripts.phono3py_kaccum:run
+      - phono3py-kdeplot = phono3py.scripts.phono3py_kdeplot:run
+
+requirements:
+  build:
+    - if: build_platform != target_platform
+      then: python
+    - if: build_platform != target_platform
+      then: cross-python_${{ target_platform }}
+    - if: build_platform != target_platform
+      then: numpy
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib("c") }}
+    - if: osx or arm64
+      then: llvm-openmp
+    - if: linux
+      then: libgomp
+    - pip
+    - scikit-build-core
+    - nanobind
+    - cmake
+    - if: not win
+      then: make
+    - if: win
+      then: ninja
+    - setuptools_scm
+  host:
+    - python
+    - numpy
+    - pip
+    - scikit-build-core
+    - nanobind
+    - cmake
+    - if: not win
+      then: make
+    - if: win
+      then: ninja
+    - setuptools_scm
+  run:
+    - python
+    - scipy
+    - pyyaml
+    - matplotlib-base
+    - h5py
+    - phonopy <3.6.0,>=3.5.0
+
+tests:
+  - python:
+      imports:
+        - phono3py
+      pip_check: true
+  - files:
+      source:
+        - test
+    requirements:
+      run:
+        - pytest
+        - pip
+    script:
+      - pytest -v
+
+about:
+  license: BSD-3-Clause
+  license_file: LICENSE
+  summary: A simulation package of phonon-phonon interaction related properties
+  description: |
+    This software calculates phonon-phonon interaction and related
+    properties using the supercell approach.
+  homepage: https://phonopy.github.io/phono3py
+  repository: https://github.com/phonopy/phono3py
+  documentation: https://phonopy.github.io/phono3py
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
+    - jochym
+    - atztogo
