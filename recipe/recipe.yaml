@@ -1,19 +1,18 @@
 schema_version: 1
 
 context:
-  name: phono3py
-  version: "3.31.1"
+  version: "4.0.0"
 
 package:
-  name: ${{ name|lower }}
+  name: phono3py
   version: ${{ version }}
 
 source:
-  url: https://files.pythonhosted.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: e63f568fc725eacf1939ec342cb8b2de4383f4f81cbf34105a84a7dfeac7b949
+  url: https://files.pythonhosted.org/packages/source/p/phono3py/phono3py-${{ version }}.tar.gz
+  sha256: c5a87ff879a24356a5947f9df0ed07cfbcb27c5a9e9d2b032b4b7f129707f7d9
 
 build:
-  number: 1
+  number: 0
   script: ${{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -v
   python:
     entry_points:
@@ -65,7 +64,8 @@ requirements:
     - pyyaml
     - matplotlib-base
     - h5py
-    - phonopy <3.6.0,>=3.5.0
+    - phonopy <4.1.0,>=4.0.0
+    - phonors
 
 tests:
   - python:
