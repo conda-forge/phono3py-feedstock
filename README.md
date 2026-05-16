@@ -16,7 +16,6 @@ Documentation: https://phonopy.github.io/phono3py
 This software calculates phonon-phonon interaction and related
 properties using the supercell approach.
 
-
 Current build status
 ====================
 
