@@ -4,7 +4,7 @@ context:
   version: "4.0.0"
 
 package:
-  name: ${{ phono3py }}
+  name: phono3py
   version: ${{ version }}
 
 source:
