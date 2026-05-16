@@ -64,7 +64,7 @@ requirements:
     - pyyaml
     - matplotlib-base
     - h5py
-    - phonopy <4.0.0,>=4.1.0
+    - phonopy <4.1.0,>=4.0.0
     - phonors
 
 tests:
