@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "4.0.0"
+  version: "4.0.1"
 
 package:
   name: phono3py
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/p/phono3py/phono3py-${{ version }}.tar.gz
-  sha256: c5a87ff879a24356a5947f9df0ed07cfbcb27c5a9e9d2b032b4b7f129707f7d9
+  sha256: d29cd578d35ea410bff0376039110a99d76894b20c2a3f67781a845fff72c56f
 
 build:
   number: 0
@@ -25,11 +25,10 @@ build:
 requirements:
   build:
     - if: build_platform != target_platform
-      then: python
-    - if: build_platform != target_platform
-      then: cross-python_${{ target_platform }}
-    - if: build_platform != target_platform
-      then: numpy
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+        - numpy
     - ${{ compiler('c') }}
     - ${{ compiler('cxx') }}
     - ${{ stdlib("c") }}
@@ -43,8 +42,7 @@ requirements:
     - cmake
     - if: not win
       then: make
-    - if: win
-      then: ninja
+      else: ninja
     - setuptools_scm
   host:
     - python
@@ -55,8 +53,7 @@ requirements:
     - cmake
     - if: not win
       then: make
-    - if: win
-      then: ninja
+      else: ninja
     - setuptools_scm
   run:
     - python
