@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "4.0.1"
+  version: "4.1.0"
 
 package:
   name: phono3py
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/p/phono3py/phono3py-${{ version }}.tar.gz
-  sha256: d29cd578d35ea410bff0376039110a99d76894b20c2a3f67781a845fff72c56f
+  sha256: 4f73678052837cce0569ba751f27b309ee32dd57f31ea3d986e2eedd15546a76
 
 build:
   number: 0
