@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "4.2.0"
+  version: "4.3.0"
 
 package:
   name: phono3py
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/p/phono3py/phono3py-${{ version }}.tar.gz
-  sha256: a180b785f97a19cb3fa97906655fc28d5730d5a6da9b54f7af127e84a04f236a
+  sha256: 9ab62d75c248b8633c873f3a62c247e15b0f8a7c75c500412ef9fb864ca8d478
 
 build:
   number: 0
@@ -61,8 +61,8 @@ requirements:
     - pyyaml
     - matplotlib-base
     - h5py
-    - phonopy <4.3.0,>=4.2.0
-    - phonors >=0.2.0
+    - phonopy <4.4.0,>=4.3.0
+    - phonors >=0.3.0
 
 tests:
   - python:
