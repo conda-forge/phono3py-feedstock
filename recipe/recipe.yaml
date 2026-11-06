@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: 4.9.0
+  version: 4.10.0
 
 package:
   name: phono3py
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/p/phono3py/phono3py-${{ version }}.tar.gz
-  sha256: 12155869daa068eacba20e7daa53e53cf84f3a288c2619173d4de9e5e6697fed
+  sha256: 80bbec50d2d11c11e2629e4b52626a08f6d7d527fea0b015346b4bd56670beeb
 
 build:
   number: 0
@@ -57,7 +57,7 @@ requirements:
     - setuptools_scm
   run:
     - python
-    - phonopy >=4.9.0,<4.10.0
+    - phonopy >=4.10.0,<4.11.0
 tests:
   - python:
       imports:
